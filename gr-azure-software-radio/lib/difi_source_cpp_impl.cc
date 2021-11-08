@@ -262,8 +262,7 @@ namespace gr {
       }
       if ((context.payload_format >> 32 & 0x0000001f) + 1 != d_unpack_idx_size * 8)
       {
-        GR_LOG_ERROR(this->d_logger, "The context packet bit depth does not match the input bit depth, check your configuration.\nContext packet bit depth is: " + std::to_string((context.payload_format >> 32 & 0x0000001f) + 1));
-        throw std::runtime_error("The context packet bit depth does not match the input bit depth, check your configuration.\nContext packet bit depth is: " + std::to_string((context.payload_format >> 32 & 0x0000001f) + 1));
+        GR_LOG_WARN(this->d_logger, "The context packet bit depth does not match the input bit depth, check your configuration.\nContext packet bit depth is: " + std::to_string((context.payload_format >> 32 & 0x0000001f) + 1));
       }
       return pmt_dict;
     }
